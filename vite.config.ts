@@ -13,4 +13,14 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  server: {
+    port: 5000,
+    proxy: {
+      "/api": {
+        target: "http://0.0.0.0:3000/",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });

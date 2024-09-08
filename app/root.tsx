@@ -8,6 +8,7 @@ import {
 import "./tailwind.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  console.log("Rendering Layout..."); // Debugging
   return (
     <html lang="en">
       <head>
@@ -26,5 +27,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  console.log("Rendering App with Outlet..."); // Debugging
+  return (
+    <Layout>
+      <Outlet />
+    </Layout>
+  );
 }
