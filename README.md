@@ -7,7 +7,7 @@
 Run the dev server:
 
 ```shellscript
-npm run dev
+bun run dev
 ```
 
 ## Deployment
@@ -15,13 +15,13 @@ npm run dev
 First, build your app for production:
 
 ```sh
-npm run build
+bun run build
 ```
 
 Then run the app in production mode:
 
 ```sh
-npm start
+bun start
 ```
 
 Now you'll need to pick a host to deploy it to.
@@ -41,8 +41,22 @@ This template comes with [Tailwind CSS](https://tailwindcss.com/) already config
 
 # go apps
 
+package global
+
 ```
 go install github.com/air-verse/air@latest
 export PATH=$PATH:$(go env GOPATH)/bin
 
+```
+
+Run the dev server for go:
+
+```sh
+bun run go
+```
+
+Run the dev server for react/remix with vite:
+
+```sh
+bun run go
 ```
