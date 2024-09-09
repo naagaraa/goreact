@@ -52,3 +52,13 @@ bun build-nest
 ```
 bun start-nest:prod
 ```
+
+## development and deploy ?
+
+for development you need 2 to 3 terminal open, 1 for go apps, 1 for go nest (choose) want
+you want or need. 1 for react apps.
+
+for deploy i am really tested, this 1 repo for 3 codebase 2 backend nestjs and gofiber. for build
+production with go fiber can use "go build -o server" or "bun go-build" file will create in root server, and then can run with "./server" if using nginx you can used this file
+
+and for nestjs production build will be store at dist/server, so running with "bun nest-start:prod" before that run "bun build-nest"
