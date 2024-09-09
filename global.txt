@@ -1,1 +1,3 @@
 go install github.com/air-verse/air@latest
+export PATH="$HOME/go/bin:$PATH"
+source ~/.zshrc

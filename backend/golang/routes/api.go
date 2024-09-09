@@ -35,8 +35,8 @@ func Routes() {
 
 	// api routes
 	// Create a group with a common prefix
-	v1 := app.Group("/api/v1")
-	v2 := app.Group("/api/v2")
+	v1 := app.Group("go/api/v1")
+	v2 := app.Group("go/api/v2")
 
 	// version 1
 	// dashboard
@@ -66,5 +66,5 @@ func Routes() {
 	v2_dashboard.Get("/",DASHBOARD_dashboard_controller_v2.Dashboard)
 
 
-	app.Listen(":3000")
+	app.Listen(":4000")
 }
