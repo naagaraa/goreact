@@ -5,13 +5,13 @@ react js vite + swc
 ### run dev
 
 ```
-npm run dev
+npm run vite:dev
 ```
 
 ### build prod
 
 ```
-npm run build
+npm run vite:build
 ```
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
