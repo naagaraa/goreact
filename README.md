@@ -1,15 +1,17 @@
 # React + Vite
 
+react js vite + swc
+
 ### run dev
 
 ```
-bun dev
+npm run dev
 ```
 
 ### build prod
 
 ```
-bun build
+npm run build
 ```
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -24,13 +26,13 @@ Currently, two official plugins are available:
 ### run dev
 
 ```
-bun go-dev
+npm run fiber:dev
 ```
 
 ### build prod
 
 ```
-bun go-build
+npm run fiber:build
 ```
 
 # Backend Nestjs
@@ -38,19 +40,19 @@ bun go-build
 ### run dev
 
 ```
-bun start-nest:dev
+npm run nest:dev
 ```
 
 ### build prod
 
 ```
-bun build-nest
+npm run nest:build
 ```
 
 ### run prod
 
 ```
-bun start-nest:prod
+npm run nest:prod
 ```
 
 ## development and deploy ?
@@ -59,6 +61,35 @@ for development you need 2 to 3 terminal open, 1 for go apps, 1 for go nest (cho
 you want or need. 1 for react apps.
 
 for deploy i am really tested, this 1 repo for 3 codebase 2 backend nestjs and gofiber. for build
-production with go fiber can use "go build -o server" or "bun go-build" file will create in root server, and then can run with "./server" if using nginx you can used this file
+production with go fiber can use "go build -o server" or "bun fiber:build" file will create in root server, and then can run with "./server" if using nginx you can used this file
 
-and for nestjs production build will be store at dist/server, so running with "bun nest-start:prod" before that run "bun build-nest"
+and for nestjs production build will be store at dist/server, so running with "bun nest:prod" before that run "bun nest:build"
+
+## Template
+
+i build this in linux ubuntu, if your are windows user maybe have bug or any problem, cause i not tested in development in windows.
+
+# required
+
+- nodejs install
+- go install
+- npm
+
+# template
+
+```
+git clone https://github.com/naagaraa/goreact project-name
+```
+
+after this, remove remote or remove git
+
+```
+cd project-name
+sudo rm -rd .git
+```
+
+create new init
+
+```
+git init
+```

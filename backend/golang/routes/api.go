@@ -1,7 +1,10 @@
 package api
 
 import (
-	"github.com/gofiber/fiber/v2"
+    "fmt"
+    "log"
+    "github.com/gofiber/fiber/v2"
+    "github.com/spf13/viper"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	authController "goreact/backend/golang/controller/auth"
 	DASHBOARD_dashboard_controller_v1 "goreact/backend/golang/controller/backend/v1/dashboard"
@@ -12,10 +15,40 @@ import (
 	UMS_users_controller_v1 "goreact/backend/golang/controller/backend/v1/ums/users"
 )
 
-// Exported function Main (needs to be uppercase to be exported)
-func Routes() {
-	app := fiber.New()
+func init() {
+    // Set the file name of the .env file
+    viper.SetConfigName(".env")
+    viper.SetConfigType("env")
+    viper.AddConfigPath(".") // Look for the .env file in the current directory
 
+    // Read the .env file
+    if err := viper.ReadInConfig(); err != nil {
+        log.Fatalf("Error reading .env file: %v", err)
+    } else {
+        log.Println(".env file loaded successfully")
+    }
+
+    // Enable automatic environment variable handling
+    viper.AutomaticEnv()
+    // Debug: Print the loaded config to ensure it's correct
+    fmt.Printf("Loaded Config: %+v\n", viper.AllSettings())
+}
+
+func Routes() {
+    // Access the "FIBER_PORT" value from .env
+    port := viper.GetString("FIBER_PORT")
+    
+    // Debug: Print the port value
+    log.Printf("Configured server port: %s", port)
+
+    if port == "" {
+        log.Println("No port found in config, defaulting to 4000")
+        port = "4000"
+    }
+
+	// config
+	// go fiber cors
+    app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*",
 		AllowMethods: "GET,POST,PUT,DELETE",
@@ -23,16 +56,11 @@ func Routes() {
 	}))
 	
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
-	})
-	app.Get("/help", func(c *fiber.Ctx) error {
-		return c.SendString("help pages")
-	})
-	app.Get("/about", func(c *fiber.Ctx) error {
-		return c.SendString("about pages")
-	})
+    app.Get("/", func(c *fiber.Ctx) error {
+        return c.SendString("Hello from Go Fiber!")
+    })
 
+	// begin route api
 	// api routes
 	// Create a group with a common prefix
 	v1 := app.Group("go/api/v1")
@@ -64,7 +92,11 @@ func Routes() {
 	// version 2
 	v2_dashboard := v2.Group("/dashboard")
 	v2_dashboard.Get("/",DASHBOARD_dashboard_controller_v2.Dashboard)
+	
+	// end route api
 
-
-	app.Listen(":4000")
+    log.Printf("Starting server on port %s", port)
+    if err := app.Listen(":" + port); err != nil {
+        log.Fatalf("Error starting server: %v", err)
+    }
 }
