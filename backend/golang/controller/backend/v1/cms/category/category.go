@@ -2,7 +2,7 @@ package category
 
 import (
     "github.com/gofiber/fiber/v2"
-    "goreact/api/utils"
+    "goreact/backend/golang/utils"
 )
 
 /**

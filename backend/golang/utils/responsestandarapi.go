@@ -1,6 +1,6 @@
 package utils
 
-import "goreact/api/dto"
+import "goreact/backend/golang/dto"
 
 // ResponseStandart generates a standardized response
 func ResponseStandart(status bool, code int, message string, data interface{}) (*dto.ResponseDTO, error) {

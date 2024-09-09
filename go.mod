@@ -2,10 +2,7 @@ module goreact
 
 go 1.22.6
 
-require (
-	github.com/antonholmquist/jason v1.0.0
-	github.com/gofiber/fiber/v2 v2.52.5
-)
+require github.com/gofiber/fiber/v2 v2.52.5
 
 require (
 	github.com/andybalholm/brotli v1.1.0 // indirect

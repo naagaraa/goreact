@@ -3,13 +3,13 @@ package api
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	authController "goreact/api/controller/auth"
-	DASHBOARD_dashboard_controller_v1 "goreact/api/controller/backend/v1/dashboard"
-	DASHBOARD_dashboard_controller_v2 "goreact/api/controller/backend/v2/dashboard"
-	CMS_blog_controller_v1 "goreact/api/controller/backend/v1/cms/blog"
-	CMS_category_controller_v1 "goreact/api/controller/backend/v1/cms/category"
-	UMS_roles_controller_v1 "goreact/api/controller/backend/v1/ums/roles"
-	UMS_users_controller_v1 "goreact/api/controller/backend/v1/ums/users"
+	authController "goreact/backend/golang/controller/auth"
+	DASHBOARD_dashboard_controller_v1 "goreact/backend/golang/controller/backend/v1/dashboard"
+	DASHBOARD_dashboard_controller_v2 "goreact/backend/golang/controller/backend/v2/dashboard"
+	CMS_blog_controller_v1 "goreact/backend/golang/controller/backend/v1/cms/blog"
+	CMS_category_controller_v1 "goreact/backend/golang/controller/backend/v1/cms/category"
+	UMS_roles_controller_v1 "goreact/backend/golang/controller/backend/v1/ums/roles"
+	UMS_users_controller_v1 "goreact/backend/golang/controller/backend/v1/ums/users"
 )
 
 // Exported function Main (needs to be uppercase to be exported)

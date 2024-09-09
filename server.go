@@ -1,6 +1,6 @@
 package main
 
-import "goreact/api"
+import "goreact/backend/golang"
 
 func main() {
 	app.Routes() 
