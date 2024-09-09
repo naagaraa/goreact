@@ -1,17 +1,12 @@
-import { Outlet, Link } from 'react-router-dom';
-
+import { Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 function About() {
   return (
     <>
-      <p>about</p>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+      <Navbar />
+      <h1 className="text-3xl font-bold text-center mt-10">
+        about pages
+      </h1>
       <Outlet />
     </>
   )
